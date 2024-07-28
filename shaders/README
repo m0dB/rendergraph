@@ -1,0 +1,7 @@
+the contents of the .gl files are taken from the qsb dump of the spirv shaders,
+section GLSL 150 [Standard]
+
+qsb -dump ./shaders/.qsb/endoftrack.vert.qsb
+qsb -dump ./shaders/.qsb/endoftrack.frag.qsb
+
+Since Qt 6.6 we should be able to access this programmetically with QShader, but for now I do it manually
