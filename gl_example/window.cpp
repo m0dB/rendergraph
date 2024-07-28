@@ -12,6 +12,7 @@ void Window::initializeGL() {
     auto node = std::make_unique<rendergraph::Node>();
     node->appendChildNode(std::make_unique<rendergraph::ExampleNode1>());
     node->appendChildNode(std::make_unique<rendergraph::ExampleNode2>());
+    //node->appendChildNode(std::make_unique<rendergraph::ExampleNode3>());
 
     m_rendergraph = std::make_unique<rendergraph::RenderGraph>(std::move(node));
     m_rendergraph->initialize();

@@ -13,6 +13,8 @@ qt_add_qml_module(sg_example
     URI RenderGraph
     QML_FILES
         qml/main.qml
+    RESOURCES
+        images/test.png
     RESOURCE_PREFIX /example
     NO_RESOURCE_TARGET_PATH
 )

@@ -8,6 +8,12 @@
 
 #include "examplenodes.h"
 
+namespace rendergraph
+{
+    std::unique_ptr<Context> createSgContext(QQuickWindow* window);
+    QSGNode* sgNode(rendergraph::Node*);
+}
+
 CustomItem::CustomItem(QQuickItem* parent)
         : QQuickItem(parent) {
     setFlag(ItemHasContents, true);
@@ -21,7 +27,6 @@ void CustomItem::geometryChange(const QRectF& newGeometry, const QRectF& oldGeom
     QQuickItem::geometryChange(newGeometry, oldGeometry);
 }
 
-QSGNode* native(rendergraph::Node*);
 QSGNode* CustomItem::updatePaintNode(QSGNode* node, UpdatePaintNodeData*) {
     QSGRectangleNode* bgNode;
     if (!node) {
@@ -33,7 +38,16 @@ QSGNode* CustomItem::updatePaintNode(QSGNode* node, UpdatePaintNodeData*) {
         m_node->appendChildNode(std::make_unique<rendergraph::ExampleNode1>());
         m_node->appendChildNode(std::make_unique<rendergraph::ExampleNode2>());
 
-        bgNode->appendChildNode(native(m_node.get()));
+        auto exampleNode3 = std::make_unique<rendergraph::ExampleNode3>();
+
+        {
+            QImage img(":/example/images/test.png");
+            auto context = rendergraph::createSgContext(window());
+            exampleNode3->setTexture(std::make_unique<rendergraph::Texture>(*context, img));
+        }
+
+        m_node->appendChildNode(std::move(exampleNode3));
+        bgNode->appendChildNode(rendergraph::sgNode(m_node.get()));
 
         node = bgNode;
     } else {

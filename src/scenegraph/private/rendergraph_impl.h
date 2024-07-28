@@ -1,7 +1,6 @@
 #include <QtQuick/QSGGeometryNode>
 #include <QtQuick/QSGMaterial>
 #include <QtQuick/QSGTexture>
-#include <QtQuick/QSGTextureProvider>
 
 #include "rendergraph.h"
 
@@ -60,11 +59,27 @@ class rendergraph::MaterialShader::Impl : public QSGMaterialShader {
             QSGMaterial* newMaterial,
             QSGMaterial* oldMaterial) override;
 
+    void updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
+                            QSGMaterial *newMaterial, QSGMaterial *oldMaterial) override;
+
     static QString resource(const char* filename) {
         return QString(":/rendergraph_sg/shaders/") + QString(filename) + QString(".qsb");
     }
 
     MaterialShader* m_pOwner;
+};
+
+// We can't use inheritance because QSGTexture has pure virtuals that we can't implement.
+// Encapsulate instead.
+class rendergraph::Texture::Impl {
+public:
+    Impl(Context& context, const QImage& image);
+
+    QSGTexture* sgTexture() const {
+        return m_pTexture.get();
+    }
+private:
+    std::unique_ptr<QSGTexture> m_pTexture{};
 };
 
 class rendergraph::Material::Impl : public QSGMaterial {
@@ -85,7 +100,10 @@ class rendergraph::Material::Impl : public QSGMaterial {
         }
         return false;
     }
-
+    
+    QSGTexture* getTexture(int binding) {
+        return m_pOwner->getTexture(binding)->impl().sgTexture();
+    }
   private:
     QSGMaterialType* type() const override {
         return m_pOwner->type()->impl().sgMaterialType();
@@ -201,3 +219,17 @@ class rendergraph::RenderGraph::Impl {
   private:
     std::unique_ptr<Node> m_pNode;
 };
+
+class rendergraph::Context::Impl {
+  public:
+    void setWindow(QQuickWindow* pWindow)
+    {
+        m_pWindow = pWindow;
+    }
+    QQuickWindow* window() const {
+        return m_pWindow;
+    }
+  private:
+    QQuickWindow* m_pWindow;
+};
+

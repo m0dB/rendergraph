@@ -1,5 +1,6 @@
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
+#include <QOpenGLTexture>
 
 #include "rendergraph.h"
 
@@ -54,6 +55,20 @@ class rendergraph::MaterialShader::Impl : private QOpenGLShaderProgram {
     }
     std::vector<int> m_attributeLocations;
     std::vector<int> m_uniformLocations;
+};
+
+class rendergraph::Texture::Impl {
+public:
+    Impl(Context& context, const QImage& image)
+    : m_pTexture(new QOpenGLTexture(image))
+    {
+    }
+
+    QOpenGLTexture* glTexture() const {
+        return m_pTexture.get();
+    }
+private:
+    std::unique_ptr<QOpenGLTexture> m_pTexture{};
 };
 
 class rendergraph::Material::Impl {
@@ -189,3 +204,7 @@ class rendergraph::RenderGraph::Impl {
   private:
     std::unique_ptr<Node> m_pTopNode;
 };
+
+class rendergraph::Context::Impl {
+};
+

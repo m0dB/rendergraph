@@ -1,6 +1,8 @@
 add_library(rendergraph_examples
     endoftrackmaterial.cpp
     endoftrackmaterial.h
+    texturematerial.cpp
+    texturematerial.h
     examplenodes.cpp
     examplenodes.h
 )

@@ -207,9 +207,26 @@ MaterialShader::Impl& MaterialShader::impl() const {
     return *m_pImpl;
 }
 
+Texture::Texture(Impl* pImpl)
+    :m_pImpl(pImpl)
+{
+}
+
+Texture::Texture(Context& context, const QImage& image)
+    : Texture(new Texture::Impl(context, image))
+{
+}
+
+Texture::~Texture() = default;
+
+Texture::Impl& Texture::impl() const {
+    return *m_pImpl;
+}
+
 Material::Material(Impl* pImpl, const UniformSet& uniformSet)
         : m_pImpl(pImpl), m_uniformsCache(uniformSet) {
 }
+
 
 Material::Material(const UniformSet& uniformSet)
         : Material(new Material::Impl(this), uniformSet) {
@@ -309,3 +326,14 @@ void RenderGraph::initialize() {
 void RenderGraph::render() {
     m_pImpl->render();
 }
+
+Context::Context()
+        : m_pImpl(new Context::Impl()) {
+}
+
+Context::~Context() = default;
+
+Context::Impl& Context::impl() const {
+    return *m_pImpl;
+}
+

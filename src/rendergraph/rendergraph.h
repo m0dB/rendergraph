@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+#include <QImage>
 #include <initializer_list>
 #include <memory>
 
@@ -16,11 +17,13 @@ class UniformSetWith;
 class UniformsCache;
 class MaterialType;
 class MaterialShader;
+class Texture;
 class Material;
 class Geometry;
 class Node;
 class GeometryNode;
 class RenderGraph;
+class Context;
 
 enum class PrimitiveType {
     UInt,
@@ -199,6 +202,19 @@ class rendergraph::MaterialShader {
     const std::unique_ptr<Impl> m_pImpl;
 };
 
+class rendergraph::Texture {
+  public:
+    class Impl;
+
+    Texture(Context& context, const QImage& image);
+    ~Texture();
+    Impl& impl() const;
+  private:
+    Texture(Impl* pImpl);
+
+    const std::unique_ptr<Impl> m_pImpl;
+};
+
 class rendergraph::Material {
   public:
     class Impl;
@@ -226,6 +242,10 @@ class rendergraph::Material {
             return true;
         }
         return false;
+    }
+
+    virtual Texture* getTexture(int binding) const {
+        return nullptr;
     }
 
   private:
@@ -299,3 +319,14 @@ class rendergraph::RenderGraph {
   private:
     const std::unique_ptr<Impl> m_pImpl;
 };
+
+class rendergraph::Context {
+  public:
+    class Impl;
+    Context();
+    ~Context();
+    Impl& impl() const;
+  private:
+    const std::unique_ptr<Impl> m_pImpl;
+};
+
