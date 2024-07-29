@@ -8,12 +8,8 @@
 namespace rendergraph {
 struct Attribute;
 class AttributeSet;
-template<typename... T>
-class AttributeSetWith;
 struct Uniform;
 class UniformSet;
-template<typename... T>
-class UniformSetWith;
 class UniformsCache;
 class MaterialType;
 class MaterialShader;
@@ -77,7 +73,7 @@ class rendergraph::AttributeSet {
 
     ~AttributeSet();
 
-    const std::vector<Attribute> attributes() const;
+    const std::vector<Attribute>& attributes() const;
     Impl& impl() const;
 
   private:
@@ -88,13 +84,12 @@ class rendergraph::AttributeSet {
     const std::unique_ptr<Impl> m_pImpl;
 };
 
+namespace rendergraph {
 template<typename... T>
-class rendergraph::AttributeSetWith : public rendergraph::AttributeSet {
-  public:
-    AttributeSetWith(const std::vector<QString>& names)
-            : AttributeSet({(Attribute::create<T>())...}, names) {
-    }
-};
+AttributeSet makeAttributeSet(const std::vector<QString>& names) {
+    return AttributeSet({(Attribute::create<T>())...}, names);
+}
+}
 
 struct rendergraph::Uniform {
     Type m_type;
@@ -116,20 +111,19 @@ class rendergraph::UniformSet {
 
     ~UniformSet();
 
-    const std::vector<Uniform> uniforms() const;
+    const std::vector<Uniform>& uniforms() const;
 
   private:
     void add(const Uniform& uniform);
     std::vector<Uniform> m_uniforms;
 };
 
+namespace rendergraph {
 template<typename... T>
-class rendergraph::UniformSetWith : public rendergraph::UniformSet {
-  public:
-    UniformSetWith(const std::vector<QString>& names)
-            : UniformSet({(Uniform::create<T>())...}, names) {
-    }
-};
+UniformSet makeUniformSet(const std::vector<QString>& names) {
+    return UniformSet({(Uniform::create<T>())...}, names);
+}
+}
 
 class rendergraph::UniformsCache {
   public:

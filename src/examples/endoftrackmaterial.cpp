@@ -8,13 +8,13 @@ EndOfTrackMaterial::EndOfTrackMaterial()
         : Material(uniforms()) {
 }
 
-/* static */ const ::AttributeSet& EndOfTrackMaterial::attributes() {
-    static ::AttributeSetWith<QVector2D, float> set({"position", "gradient"});
+/* static */ const AttributeSet& EndOfTrackMaterial::attributes() {
+    static AttributeSet set = makeAttributeSet<QVector2D, float>({"position", "gradient"});
     return set;
 }
 
-/* static */ const ::UniformSet& EndOfTrackMaterial::uniforms() {
-    static ::UniformSetWith<QVector4D> set({"ubuf.color"});
+/* static */ const UniformSet& EndOfTrackMaterial::uniforms() {
+    static UniformSet set = makeUniformSet<QVector4D>({"ubuf.color"});
     return set;
 }
 

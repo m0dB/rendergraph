@@ -9,13 +9,13 @@ TextureMaterial::TextureMaterial()
         : Material(uniforms()) {
 }
 
-/* static */ const ::AttributeSet& TextureMaterial::attributes() {
-    static ::AttributeSetWith<QVector2D, QVector2D> set({"position", "texcoord"});
+/* static */ const AttributeSet& TextureMaterial::attributes() {
+    static AttributeSet set = makeAttributeSet<QVector2D, QVector2D>({"position", "texcoord"});
     return set;
 }
 
-/* static */ const ::UniformSet& TextureMaterial::uniforms() {
-    static ::UniformSetWith<QMatrix4x4> set({"ubuf.matrix"});
+/* static */ const UniformSet& TextureMaterial::uniforms() {
+    static UniformSet set = makeUniformSet<QMatrix4x4>({"ubuf.matrix"});
     return set;
 }
 

@@ -137,7 +137,7 @@ void AttributeSet::add(const Attribute& attribute) {
     m_pImpl->add(attribute);
 }
 
-const std::vector<Attribute> AttributeSet::attributes() const {
+const std::vector<Attribute>& AttributeSet::attributes() const {
     return m_attributes;
 }
 
@@ -155,7 +155,7 @@ void UniformSet::add(const Uniform& uniform) {
     m_uniforms.push_back(uniform);
 }
 
-const std::vector<Uniform> UniformSet::uniforms() const {
+const std::vector<Uniform>& UniformSet::uniforms() const {
     return m_uniforms;
 }
 
