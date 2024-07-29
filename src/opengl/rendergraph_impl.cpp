@@ -2,7 +2,8 @@
 
 using namespace rendergraph;
 
-MaterialShader::Impl::Impl(MaterialShader* pOwner, const char* vertexShaderFile, const char* fragmentShaderFile, const UniformSet& uniformSet, const AttributeSet& attributeSet) {
+MaterialShader::Impl::Impl(MaterialShader* pOwner, const char* vertexShaderFile, const char* fragmentShaderFile, const UniformSet& uniformSet, const AttributeSet& attributeSet)
+: m_pOwner(pOwner) {
     addShaderFromSourceFile(QOpenGLShader::Vertex, resource(vertexShaderFile));
     addShaderFromSourceFile(QOpenGLShader::Fragment, resource(fragmentShaderFile));
     link();
@@ -56,7 +57,17 @@ void GeometryNode::Impl::render() {
         shader.setAttributeArray(location, geometry.vertexData(i), geometry.tupleSize(i));
     }
 
+    // TODO multiple textures
+    auto pTexture = m_pMaterial->texture(1);
+    if (pTexture) {
+        pTexture->impl().glTexture()->bind();
+    }
+
     glDrawArrays(GL_TRIANGLE_STRIP, 0, geometry.vertexCount());
+
+    if (pTexture) {
+        pTexture->impl().glTexture()->release();
+    }
 
     for (int i = 0; i < geometry.attributeCount(); i++) {
         int location = material.attributeLocation(i);

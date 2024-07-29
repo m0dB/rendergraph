@@ -18,7 +18,7 @@ void MaterialShader::Impl::updateSampledImage(RenderState &state, int binding, Q
                             QSGMaterial *newMaterial, QSGMaterial *oldMaterial) 
 {
     Material::Impl* pMaterialImpl = static_cast<Material::Impl*>(newMaterial);
-    *texture = pMaterialImpl->getTexture(binding);
+    *texture = pMaterialImpl->texture(binding);
     (*texture)->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
 }
 

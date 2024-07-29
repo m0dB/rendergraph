@@ -10,7 +10,7 @@ qt6_add_shaders(rendergraph_sg "shaders-sg"
     PRECOMPILE
     OPTIMIZED
     PREFIX
-        "/rendergraph_sg/shaders"
+        /rendergraph_sg/shaders
     FILES
         ${shaders}
 )
@@ -19,8 +19,8 @@ include(generated_shaders_gl.cmake)
 
 qt_add_resources(rendergraph_gl "shaders-gl"
     PREFIX
-        "/rendergraph_gl/shaders"
+        /rendergraph_gl/shaders
     FILES
-        ${generate_shaders_gl}
+        ${generated_shaders_gl}
 )
 

@@ -12,7 +12,15 @@ void Window::initializeGL() {
     auto node = std::make_unique<rendergraph::Node>();
     node->appendChildNode(std::make_unique<rendergraph::ExampleNode1>());
     node->appendChildNode(std::make_unique<rendergraph::ExampleNode2>());
-    //node->appendChildNode(std::make_unique<rendergraph::ExampleNode3>());
+    node->appendChildNode(std::make_unique<rendergraph::ExampleNode3>());
+
+    {
+        QImage img(":/example/images/test.png");
+        rendergraph::Context context;
+        static_cast<rendergraph::ExampleNode3*>(node->lastChild())->setTexture(std::make_unique<rendergraph::Texture>(context, img));
+    }
+
+
 
     m_rendergraph = std::make_unique<rendergraph::RenderGraph>(std::move(node));
     m_rendergraph->initialize();

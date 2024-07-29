@@ -18,7 +18,7 @@ class rendergraph::TextureMaterial : public rendergraph::Material {
 
     MaterialShader* createShader() const override;
 
-    Texture* getTexture(int binding) const override
+    Texture* texture(int binding) const override
     {
         return m_pTexture.get();
     }

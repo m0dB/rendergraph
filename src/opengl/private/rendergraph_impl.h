@@ -55,12 +55,13 @@ class rendergraph::MaterialShader::Impl : private QOpenGLShaderProgram {
     }
     std::vector<int> m_attributeLocations;
     std::vector<int> m_uniformLocations;
+    MaterialShader* m_pOwner;
 };
 
 class rendergraph::Texture::Impl {
 public:
     Impl(Context& context, const QImage& image)
-    : m_pTexture(new QOpenGLTexture(image))
+    : m_pTexture(new QOpenGLTexture(image.convertToFormat(QImage::Format_ARGB32_Premultiplied)))
     {
     }
 
@@ -73,7 +74,8 @@ private:
 
 class rendergraph::Material::Impl {
   public:
-    Impl(Material* pOwner) {
+    Impl(Material* pOwner)
+    : m_pOwner(pOwner) {
     }
 
     void setShader(MaterialShader* pShader) {
@@ -82,6 +84,10 @@ class rendergraph::Material::Impl {
 
     int attributeLocation(int attributeIndex) const {
         return m_pShader->impl().attributeLocation(attributeIndex);
+    }
+
+    QOpenGLTexture* texture(int binding) {
+        return m_pOwner->texture(binding)->impl().glTexture();
     }
 
     int uniformLocation(int uniformIndex) const {
@@ -94,6 +100,7 @@ class rendergraph::Material::Impl {
 
   private:
     MaterialShader* m_pShader{};
+    Material* m_pOwner;
 };
 
 class rendergraph::Geometry::Impl {
@@ -145,6 +152,10 @@ class rendergraph::Node::Impl {
         m_pChildren.clear();
     }
 
+    Node* lastChild() const {
+        return m_pChildren.back().get();
+    }
+    
     virtual void initialize() {
         for (auto& pChild : m_pChildren) {
             pChild->impl().initialize();

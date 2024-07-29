@@ -277,6 +277,10 @@ void Node::removeAllChildNodes() {
     impl().removeAllChildNodes();
 }
 
+Node* Node::lastChild() const {
+    return impl().lastChild();
+}
+
 GeometryNode::GeometryNode(GeometryNode::Impl* pImpl)
         : Node(pImpl) {
 }

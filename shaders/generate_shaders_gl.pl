@@ -3,7 +3,7 @@
 my @files = (glob("*.vert"),glob("*.frag"));
 
 open(GENERATED,">generated_shaders_gl.cmake");
-print(GENERATED "set(generate_shaders_gl\n");
+print(GENERATED "set(generated_shaders_gl\n");
 for $file (@files)
 {
     system("qsb","--glsl","120",$file,"-o","/tmp/$$-$file.qsb");

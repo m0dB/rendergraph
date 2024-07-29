@@ -244,7 +244,7 @@ class rendergraph::Material {
         return false;
     }
 
-    virtual Texture* getTexture(int binding) const {
+    virtual Texture* texture(int binding) const {
         return nullptr;
     }
 
@@ -280,7 +280,7 @@ class rendergraph::Node {
     Impl& impl() const;
     void appendChildNode(std::unique_ptr<Node> pChild);
     void removeAllChildNodes();
-
+    Node* lastChild() const;
   protected:
     Node(Impl* impl);
 

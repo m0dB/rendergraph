@@ -10,7 +10,6 @@ set_target_properties(gl_example PROPERTIES
     MACOSX_BUNDLE TRUE
 )
 
-
 target_link_libraries(gl_example PRIVATE
     rendergraph_gl
     rendergraph_examples
@@ -21,8 +20,9 @@ target_link_libraries(gl_example PRIVATE
 
 qt_add_resources(gl_example "gl_example"
     PREFIX
-        "/"
+        /example
     FILES
+        images/test.png
 )
 
 install(TARGETS gl_example

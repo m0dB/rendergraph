@@ -101,8 +101,8 @@ class rendergraph::Material::Impl : public QSGMaterial {
         return false;
     }
     
-    QSGTexture* getTexture(int binding) {
-        return m_pOwner->getTexture(binding)->impl().sgTexture();
+    QSGTexture* texture(int binding) {
+        return m_pOwner->texture(binding)->impl().sgTexture();
     }
   private:
     QSGMaterialType* type() const override {
@@ -171,6 +171,10 @@ class rendergraph::Node::Impl {
     void removeAllChildNodes() {
         m_sgNode->removeAllChildNodes();
         m_pChildren.clear();
+    }
+
+    Node* lastChild() const {
+        return m_pChildren.back().get();
     }
 
   protected:
