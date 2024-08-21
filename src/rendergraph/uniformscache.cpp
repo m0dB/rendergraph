@@ -1,5 +1,7 @@
 #include "rendergraph/uniformscache.h"
 
+#include "rendergraph/uniformset.h"
+
 using namespace rendergraph;
 
 UniformsCache::UniformsCache(const UniformSet& uniformSet) {
@@ -23,4 +25,3 @@ void UniformsCache::get(int uniformIndex, Type type, void* ptr, int size) const 
     assert(type == m_infos[uniformIndex].m_type);
     memcpy(ptr, m_byteArray.data() + m_infos[uniformIndex].m_offset, size);
 }
-

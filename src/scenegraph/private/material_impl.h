@@ -1,10 +1,12 @@
 #pragma once
 
-#include "rendergraph/material.h"
-#include "texture_impl.h"
-#include "materialtype_impl.h"
-#include "materialshader_impl.h"
 #include <QSGMaterial>
+
+#include "rendergraph/material.h"
+
+#include "materialshader_impl.h"
+#include "materialtype_impl.h"
+#include "texture_impl.h"
 
 class rendergraph::Material::Impl : public QSGMaterial {
   public:
@@ -24,10 +26,11 @@ class rendergraph::Material::Impl : public QSGMaterial {
         }
         return false;
     }
-    
+
     QSGTexture* texture(int binding) {
         return m_pOwner->texture(binding)->impl().sgTexture();
     }
+
   private:
     QSGMaterialType* type() const override {
         return m_pOwner->type()->impl().sgMaterialType();
@@ -44,4 +47,3 @@ class rendergraph::Material::Impl : public QSGMaterial {
 
     Material* m_pOwner;
 };
-

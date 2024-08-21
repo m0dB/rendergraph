@@ -1,7 +1,8 @@
 #pragma once
 
-#include "rendergraph/types.h"
 #include <QString>
+
+#include "rendergraph/types.h"
 
 namespace rendergraph {
 struct Uniform;
@@ -20,4 +21,3 @@ struct rendergraph::Uniform {
         return Uniform(typeOf<T>());
     }
 };
-

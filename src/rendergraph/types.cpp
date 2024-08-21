@@ -1,8 +1,10 @@
 #include "rendergraph/types.h"
+
+#include <QMatrix4x4.h>
 #include <QVector2D.h>
 #include <QVector3D.h>
 #include <QVector4D.h>
-#include <QMatrix4x4.h>
+
 #include <QOpenGLFunctions>
 
 using namespace rendergraph;
@@ -108,4 +110,3 @@ template<>
 int rendergraph::tupleSizeOf<QVector4D>() {
     return 4;
 }
-

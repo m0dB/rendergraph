@@ -1,10 +1,13 @@
 #pragma once
 
-#include "rendergraph/uniformset.h"
+#include <QByteArray>
+
+#include "rendergraph/types.h"
 
 namespace rendergraph {
+class UniformSet;
 class UniformsCache;
-}
+} // namespace rendergraph
 
 class rendergraph::UniformsCache {
   public:
@@ -48,4 +51,3 @@ class rendergraph::UniformsCache {
     std::vector<Info> m_infos;
     QByteArray m_byteArray;
 };
-

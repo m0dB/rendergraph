@@ -7,4 +7,3 @@ class rendergraph::MaterialType::Impl {
     Impl() {
     }
 };
-

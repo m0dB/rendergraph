@@ -1,12 +1,12 @@
 #pragma once
 
-#include "rendergraph/node.h" 
+#include "rendergraph/node.h"
 
 namespace rendergraph {
 class GeometryNode;
 class Geometry;
 class Material;
-}
+} // namespace rendergraph
 
 class rendergraph::GeometryNode : public rendergraph::Node {
   public:
@@ -26,4 +26,3 @@ class rendergraph::GeometryNode : public rendergraph::Node {
     std::unique_ptr<Material> m_material;
     std::unique_ptr<Geometry> m_geometry;
 };
-

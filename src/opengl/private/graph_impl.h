@@ -2,6 +2,7 @@
 
 #include "rendergraph/graph.h"
 #include "rendergraph/node.h"
+
 #include "node_impl.h"
 
 class rendergraph::Graph::Impl {
@@ -21,4 +22,3 @@ class rendergraph::Graph::Impl {
   private:
     std::unique_ptr<Node> m_pTopNode;
 };
-

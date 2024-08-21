@@ -1,4 +1,5 @@
 #include "rendergraph/attributeset.h"
+
 #include "attributeset_impl.h"
 
 using namespace rendergraph;
@@ -34,4 +35,3 @@ void AttributeSet::add(const Attribute& attribute) {
 const std::vector<Attribute>& AttributeSet::attributes() const {
     return m_attributes;
 }
-

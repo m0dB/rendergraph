@@ -1,4 +1,5 @@
 #include "rendergraph/node.h"
+
 #include "node_impl.h"
 
 using namespace rendergraph;
@@ -28,4 +29,3 @@ void Node::removeAllChildNodes() {
 Node* Node::lastChild() const {
     return impl().lastChild();
 }
-

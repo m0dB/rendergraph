@@ -1,15 +1,13 @@
 #pragma once
 
-#include <memory>
 #include <QQuickWindow>
 #include <QSGNode>
+#include <memory>
 
-namespace rendergraph
-{
-    class Context;
-    class Node;
+namespace rendergraph {
+class Context;
+class Node;
 
-    std::unique_ptr<Context> createSgContext(QQuickWindow* window);
-    QSGNode* sgNode(Node* pNode);
-}
-
+std::unique_ptr<Context> createSgContext(QQuickWindow* window);
+QSGNode* sgNode(Node* pNode);
+} // namespace rendergraph

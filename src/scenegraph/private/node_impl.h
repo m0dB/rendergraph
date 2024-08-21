@@ -1,7 +1,8 @@
 #pragma once
 
-#include "rendergraph/node.h"
 #include <QSGNode>
+
+#include "rendergraph/node.h"
 
 class rendergraph::Node::Impl {
   public:
@@ -33,4 +34,3 @@ class rendergraph::Node::Impl {
     std::unique_ptr<QSGNode> m_sgNode;
     std::vector<std::unique_ptr<Node>> m_pChildren;
 };
-

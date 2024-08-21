@@ -1,6 +1,7 @@
 #pragma once
 
 #include <initializer_list>
+
 #include "rendergraph/uniform.h"
 
 namespace rendergraph {
@@ -25,5 +26,4 @@ template<typename... T>
 UniformSet makeUniformSet(const std::vector<QString>& names) {
     return UniformSet({(Uniform::create<T>())...}, names);
 }
-}
-
+} // namespace rendergraph

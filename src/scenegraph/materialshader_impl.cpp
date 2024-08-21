@@ -10,11 +10,8 @@ bool rendergraph::MaterialShader::Impl::updateUniformData(RenderState& state,
     return pMaterialImpl->updateUniformsByteArray(state.uniformData());
 }
 
-void MaterialShader::Impl::updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
-                            QSGMaterial *newMaterial, QSGMaterial *oldMaterial) 
-{
+void MaterialShader::Impl::updateSampledImage(RenderState& state, int binding, QSGTexture** texture, QSGMaterial* newMaterial, QSGMaterial* oldMaterial) {
     Material::Impl* pMaterialImpl = static_cast<Material::Impl*>(newMaterial);
     *texture = pMaterialImpl->texture(binding);
     (*texture)->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
 }
-

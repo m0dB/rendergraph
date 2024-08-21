@@ -1,8 +1,8 @@
 #pragma once
 
-#include "rendergraph/attributeset.h"
-#include "helper.h"
 #include <QSGGeometry>
+
+#include "rendergraph/attributeset.h"
 
 class rendergraph::AttributeSet::Impl {
   public:
@@ -21,5 +21,13 @@ class rendergraph::AttributeSet::Impl {
   private:
     QSGGeometry::AttributeSet m_sgAttributeSet{};
     std::vector<QSGGeometry::Attribute> m_sgAttributes;
-};
 
+    int toQSGGeometryType(const rendergraph::PrimitiveType& t) {
+        switch (t) {
+        case rendergraph::PrimitiveType::Float:
+            return QSGGeometry::FloatType;
+        case rendergraph::PrimitiveType::UInt:
+            return QSGGeometry::UnsignedIntType;
+        }
+    }
+};

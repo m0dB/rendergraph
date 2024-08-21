@@ -4,6 +4,7 @@
 
 #include "rendergraph/materialshader.h"
 #include "rendergraph/materialtype.h"
+#include "rendergraph/uniformset.h"
 
 using namespace rendergraph;
 

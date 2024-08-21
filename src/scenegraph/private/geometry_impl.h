@@ -1,8 +1,10 @@
 #pragma once
 
-#include "rendergraph/geometry.h"
-#include "attributeset_impl.h"
 #include <QSGGeometry>
+
+#include "rendergraph/geometry.h"
+
+#include "attributeset_impl.h"
 
 class rendergraph::Geometry::Impl : public QSGGeometry {
   public:
@@ -38,4 +40,3 @@ class rendergraph::Geometry::Impl : public QSGGeometry {
   private:
     const int m_stride;
 };
-

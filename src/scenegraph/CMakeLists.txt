@@ -8,7 +8,6 @@ add_library(rendergraph_sg
     private/geometry_impl.h
     private/geometrynode_impl.h
     private/graph_impl.h
-    private/helper.h
     private/material_impl.h
     private/materialshader_impl.h
     private/materialtype_impl.h

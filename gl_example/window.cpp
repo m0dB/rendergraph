@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "examplenodes.h"
+#include "rendergraph/context.h"
 #include "rendergraph/graph.h"
 
 Window::Window() {

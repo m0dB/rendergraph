@@ -1,19 +1,19 @@
 #pragma once
 
-#include "rendergraph/texture.h"
 #include <QOpenGLTexture>
 
+#include "rendergraph/texture.h"
+
 class rendergraph::Texture::Impl {
-public:
+  public:
     Impl(Context& context, const QImage& image)
-    : m_pTexture(new QOpenGLTexture(image.convertToFormat(QImage::Format_ARGB32_Premultiplied)))
-    {
+            : m_pTexture(new QOpenGLTexture(image.convertToFormat(QImage::Format_ARGB32_Premultiplied))) {
     }
 
     QOpenGLTexture* glTexture() const {
         return m_pTexture.get();
     }
-private:
+
+  private:
     std::unique_ptr<QOpenGLTexture> m_pTexture{};
 };
-

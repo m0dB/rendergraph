@@ -1,9 +1,11 @@
 #pragma once
 
-#include "node_impl.h"
-#include "material_impl.h"
-#include "rendergraph/geometrynode.h"
 #include <QOpenGLFunctions>
+
+#include "rendergraph/geometrynode.h"
+
+#include "material_impl.h"
+#include "node_impl.h"
 
 class rendergraph::GeometryNode::Impl : public rendergraph::Node::Impl, public QOpenGLFunctions {
   public:
@@ -30,4 +32,3 @@ class rendergraph::GeometryNode::Impl : public rendergraph::Node::Impl, public Q
     Geometry* m_pGeometry{};
     Material* m_pMaterial{};
 };
-

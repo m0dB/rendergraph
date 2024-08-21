@@ -5,7 +5,7 @@
 namespace rendergraph {
 class Graph;
 class Node;
-}
+} // namespace rendergraph
 
 class rendergraph::Graph {
   public:
@@ -19,4 +19,3 @@ class rendergraph::Graph {
   private:
     const std::unique_ptr<Impl> m_pImpl;
 };
-

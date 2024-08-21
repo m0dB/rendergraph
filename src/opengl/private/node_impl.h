@@ -1,7 +1,8 @@
 #pragma once
 
-#include "rendergraph/node.h"
 #include <vector>
+
+#include "rendergraph/node.h"
 
 class rendergraph::Node::Impl {
   public:
@@ -19,7 +20,7 @@ class rendergraph::Node::Impl {
     Node* lastChild() const {
         return m_pChildren.back().get();
     }
-    
+
     virtual void initialize() {
         for (auto& pChild : m_pChildren) {
             pChild->impl().initialize();
@@ -35,4 +36,3 @@ class rendergraph::Node::Impl {
   private:
     std::vector<std::unique_ptr<Node>> m_pChildren;
 };
-

@@ -15,4 +15,3 @@ class rendergraph::AttributeSet::Impl {
   private:
     std::vector<Attribute> m_attributes;
 };
-

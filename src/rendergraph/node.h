@@ -16,10 +16,10 @@ class rendergraph::Node {
     void appendChildNode(std::unique_ptr<Node> pChild);
     void removeAllChildNodes();
     Node* lastChild() const;
+
   protected:
     Node(Impl* impl);
 
   private:
     const std::unique_ptr<Impl> m_pImpl;
 };
-

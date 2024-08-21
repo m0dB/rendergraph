@@ -1,7 +1,8 @@
 #pragma once
 
-#include "rendergraph/materialtype.h"
 #include <QSGMaterial>
+
+#include "rendergraph/materialtype.h"
 
 class rendergraph::MaterialType::Impl : public QSGMaterialType {
   public:
@@ -9,4 +10,3 @@ class rendergraph::MaterialType::Impl : public QSGMaterialType {
         return this;
     }
 };
-

@@ -1,7 +1,8 @@
 #pragma once
 
-#include "rendergraph/materialshader.h"
 #include <QOpenGLShaderProgram>
+
+#include "rendergraph/materialshader.h"
 
 class rendergraph::MaterialShader::Impl : private QOpenGLShaderProgram {
   public:
@@ -26,4 +27,3 @@ class rendergraph::MaterialShader::Impl : private QOpenGLShaderProgram {
     std::vector<int> m_uniformLocations;
     MaterialShader* m_pOwner;
 };
-

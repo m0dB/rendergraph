@@ -1,6 +1,7 @@
 #include "rendergraph/geometrynode.h"
-#include "rendergraph/geometry.h"
+
 #include "geometrynode_impl.h"
+#include "rendergraph/geometry.h"
 
 using namespace rendergraph;
 
@@ -35,4 +36,3 @@ Geometry& GeometryNode::geometry() const {
 Material& GeometryNode::material() const {
     return *m_material;
 }
-

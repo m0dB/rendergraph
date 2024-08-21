@@ -1,14 +1,14 @@
 #pragma once
 
-#include "rendergraph/uniformset.h"
 #include "rendergraph/uniformscache.h"
 
 namespace rendergraph {
+class UniformSet;
 class Material;
 class MaterialShader;
 class MaterialType;
 class Texture;
-}
+} // namespace rendergraph
 
 class rendergraph::Material {
   public:
@@ -50,4 +50,3 @@ class rendergraph::Material {
     UniformsCache m_uniformsCache;
     bool m_uniformsCacheDirty{};
 };
-

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <initializer_list>
+
 #include "rendergraph/attribute.h"
 
 namespace rendergraph {
@@ -32,5 +33,4 @@ template<typename... T>
 AttributeSet makeAttributeSet(const std::vector<QString>& names) {
     return AttributeSet({(Attribute::create<T>())...}, names);
 }
-}
-
+} // namespace rendergraph

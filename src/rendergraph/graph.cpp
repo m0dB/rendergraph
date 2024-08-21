@@ -1,4 +1,5 @@
 #include "rendergraph/graph.h"
+
 #include "graph_impl.h"
 
 using namespace rendergraph;
@@ -20,4 +21,3 @@ void Graph::initialize() {
 void Graph::render() {
     m_pImpl->render();
 }
-

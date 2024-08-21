@@ -1,9 +1,10 @@
 #pragma once
 
 #include "rendergraph/geometrynode.h"
-#include "node_impl.h"
+
 #include "geometry_impl.h"
 #include "material_impl.h"
+#include "node_impl.h"
 
 class rendergraph::GeometryNode::Impl : public rendergraph::Node::Impl {
   public:
@@ -20,5 +21,3 @@ class rendergraph::GeometryNode::Impl : public rendergraph::Node::Impl {
         sgGeometryNode()->setMaterial(material->impl().sgMaterial());
     }
 };
-
-

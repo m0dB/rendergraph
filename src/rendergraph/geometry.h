@@ -1,10 +1,11 @@
 #pragma once
 
-#include "rendergraph/attributeset.h"
+#include <memory>
 
 namespace rendergraph {
 class Geometry;
-}
+class AttributeSet;
+} // namespace rendergraph
 
 class rendergraph::Geometry {
   public:
@@ -20,4 +21,3 @@ class rendergraph::Geometry {
 
     const std::unique_ptr<Impl> m_pImpl;
 };
-

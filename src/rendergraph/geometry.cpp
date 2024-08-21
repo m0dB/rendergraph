@@ -1,4 +1,5 @@
 #include "rendergraph/geometry.h"
+
 #include "geometry_impl.h"
 
 using namespace rendergraph;
@@ -19,4 +20,3 @@ Geometry::Impl& Geometry::impl() const {
 void Geometry::setAttributeValues(int attributePosition, const float* data, int numTuples) {
     m_pImpl->setAttributeValues(attributePosition, data, numTuples);
 }
-

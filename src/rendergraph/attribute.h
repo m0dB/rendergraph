@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+
 #include "rendergraph/types.h"
 
 namespace rendergraph {
@@ -21,4 +22,3 @@ struct rendergraph::Attribute {
         return Attribute(tupleSizeOf<T>(), primitiveTypeOf<T>());
     }
 };
-

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "rendergraph/geometry.h"
+
 #include "attributeset_impl.h"
 
 class rendergraph::Geometry::Impl {
@@ -38,4 +39,3 @@ class rendergraph::Geometry::Impl {
     std::vector<int> m_tupleSizes;
     std::vector<std::vector<float>> m_data;
 };
-

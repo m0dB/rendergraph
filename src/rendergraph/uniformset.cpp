@@ -19,4 +19,3 @@ void UniformSet::add(const Uniform& uniform) {
 const std::vector<Uniform>& UniformSet::uniforms() const {
     return m_uniforms;
 }
-

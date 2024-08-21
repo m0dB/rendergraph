@@ -7,6 +7,7 @@
 #include <QtQuick/QSGTextureProvider>
 
 #include "examplenodes.h"
+#include "rendergraph/context.h"
 
 namespace rendergraph {
 std::unique_ptr<Context> createSgContext(QQuickWindow* window);

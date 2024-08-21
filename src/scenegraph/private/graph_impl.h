@@ -16,4 +16,3 @@ class rendergraph::Graph::Impl {
   private:
     std::unique_ptr<Node> m_pNode;
 };
-

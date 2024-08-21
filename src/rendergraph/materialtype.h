@@ -19,4 +19,3 @@ class rendergraph::MaterialType {
 
     const std::unique_ptr<Impl> m_pImpl;
 };
-

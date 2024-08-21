@@ -1,13 +1,14 @@
 #pragma once
 
 #include "rendergraph/material.h"
+
 #include "materialshader_impl.h"
 #include "texture_impl.h"
 
 class rendergraph::Material::Impl {
   public:
     Impl(Material* pOwner)
-    : m_pOwner(pOwner) {
+            : m_pOwner(pOwner) {
     }
 
     void setShader(MaterialShader* pShader) {
@@ -34,4 +35,3 @@ class rendergraph::Material::Impl {
     MaterialShader* m_pShader{};
     Material* m_pOwner;
 };
-

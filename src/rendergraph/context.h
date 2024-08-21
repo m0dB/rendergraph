@@ -12,7 +12,7 @@ class rendergraph::Context {
     Context();
     ~Context();
     Impl& impl() const;
+
   private:
     const std::unique_ptr<Impl> m_pImpl;
 };
-

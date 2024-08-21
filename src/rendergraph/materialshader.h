@@ -1,11 +1,12 @@
 #pragma once
 
-#include "rendergraph/attributeset.h"
-#include "rendergraph/uniformset.h"
+#include <memory>
 
 namespace rendergraph {
+class AttributeSet;
+class UniformSet;
 class MaterialShader;
-}
+} // namespace rendergraph
 
 class rendergraph::MaterialShader {
   public:
@@ -20,4 +21,3 @@ class rendergraph::MaterialShader {
 
     const std::unique_ptr<Impl> m_pImpl;
 };
-

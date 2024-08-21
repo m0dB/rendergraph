@@ -1,9 +1,11 @@
 #include "materialshader_impl.h"
+#include "rendergraph/attributeset.h"
+#include "rendergraph/uniformset.h"
 
 using namespace rendergraph;
 
 MaterialShader::Impl::Impl(MaterialShader* pOwner, const char* vertexShaderFile, const char* fragmentShaderFile, const UniformSet& uniformSet, const AttributeSet& attributeSet)
-: m_pOwner(pOwner) {
+        : m_pOwner(pOwner) {
     addShaderFromSourceFile(QOpenGLShader::Vertex, resource(vertexShaderFile));
     addShaderFromSourceFile(QOpenGLShader::Fragment, resource(fragmentShaderFile));
     link();
@@ -16,4 +18,3 @@ MaterialShader::Impl::Impl(MaterialShader* pOwner, const char* vertexShaderFile,
         m_uniformLocations.push_back(location);
     }
 }
-
