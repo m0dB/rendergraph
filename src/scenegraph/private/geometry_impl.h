@@ -2,9 +2,8 @@
 
 #include <QSGGeometry>
 
-#include "rendergraph/geometry.h"
-
 #include "attributeset_impl.h"
+#include "rendergraph/geometry.h"
 
 class rendergraph::Geometry::Impl : public QSGGeometry {
   public:
@@ -37,6 +36,33 @@ class rendergraph::Geometry::Impl : public QSGGeometry {
         }
     }
 
+    void setDrawingMode(Geometry::DrawingMode mode) {
+        QSGGeometry::setDrawingMode(toSgDrawingMode(mode));
+    }
+
+    Geometry::DrawingMode drawingMode() const {
+        return fromSgDrawingMode(QSGGeometry::drawingMode());
+    }
+
   private:
     const int m_stride;
+
+    static QSGGeometry::DrawingMode toSgDrawingMode(Geometry::DrawingMode mode) {
+        switch (mode) {
+        case Geometry::DrawingMode::Triangles:
+            return QSGGeometry::DrawTriangles;
+        case Geometry::DrawingMode::TriangleStrip:
+            return QSGGeometry::DrawTriangleStrip;
+        }
+    }
+    static Geometry::DrawingMode fromSgDrawingMode(unsigned int mode) {
+        switch (mode) {
+        case QSGGeometry::DrawTriangles:
+            return Geometry::DrawingMode::Triangles;
+        case QSGGeometry::DrawTriangleStrip:
+            return Geometry::DrawingMode::TriangleStrip;
+        default:
+            throw "not implemented";
+        }
+    }
 };

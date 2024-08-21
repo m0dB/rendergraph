@@ -1,4 +1,5 @@
 #include "texture_impl.h"
+
 #include "context_impl.h"
 
 using namespace rendergraph;

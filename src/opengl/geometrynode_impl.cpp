@@ -1,7 +1,19 @@
 #include "geometrynode_impl.h"
+
 #include "geometry_impl.h"
 
 using namespace rendergraph;
+
+namespace {
+GLenum toGlDrawingMode(Geometry::DrawingMode mode) {
+    switch (mode) {
+    case Geometry::DrawingMode::Triangles:
+        return GL_TRIANGLES;
+    case Geometry::DrawingMode::TriangleStrip:
+        return GL_TRIANGLE_STRIP;
+    }
+}
+} // namespace
 
 void GeometryNode::Impl::render() {
     Material::Impl& material = m_pMaterial->impl();
@@ -49,7 +61,7 @@ void GeometryNode::Impl::render() {
         pTexture->impl().glTexture()->bind();
     }
 
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, geometry.vertexCount());
+    glDrawArrays(toGlDrawingMode(geometry.drawingMode()), 0, geometry.vertexCount());
 
     if (pTexture) {
         pTexture->impl().glTexture()->release();

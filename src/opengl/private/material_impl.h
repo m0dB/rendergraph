@@ -1,8 +1,7 @@
 #pragma once
 
-#include "rendergraph/material.h"
-
 #include "materialshader_impl.h"
+#include "rendergraph/material.h"
 #include "texture_impl.h"
 
 class rendergraph::Material::Impl {

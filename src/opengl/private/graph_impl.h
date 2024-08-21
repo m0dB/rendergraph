@@ -1,9 +1,8 @@
 #pragma once
 
+#include "node_impl.h"
 #include "rendergraph/graph.h"
 #include "rendergraph/node.h"
-
-#include "node_impl.h"
 
 class rendergraph::Graph::Impl {
   public:

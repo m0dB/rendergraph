@@ -20,3 +20,11 @@ Geometry::Impl& Geometry::impl() const {
 void Geometry::setAttributeValues(int attributePosition, const float* data, int numTuples) {
     m_pImpl->setAttributeValues(attributePosition, data, numTuples);
 }
+
+void Geometry::setDrawingMode(Geometry::DrawingMode mode) {
+    m_pImpl->setDrawingMode(mode);
+}
+
+Geometry::DrawingMode Geometry::drawingMode() const {
+    return m_pImpl->Impl::drawingMode();
+}

@@ -2,10 +2,9 @@
 
 #include <QOpenGLFunctions>
 
-#include "rendergraph/geometrynode.h"
-
 #include "material_impl.h"
 #include "node_impl.h"
+#include "rendergraph/geometrynode.h"
 
 class rendergraph::GeometryNode::Impl : public rendergraph::Node::Impl, public QOpenGLFunctions {
   public:
