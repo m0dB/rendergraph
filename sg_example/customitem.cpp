@@ -8,11 +8,10 @@
 
 #include "examplenodes.h"
 
-namespace rendergraph
-{
-    std::unique_ptr<Context> createSgContext(QQuickWindow* window);
-    QSGNode* sgNode(rendergraph::Node*);
-}
+namespace rendergraph {
+std::unique_ptr<Context> createSgContext(QQuickWindow* window);
+QSGNode* sgNode(rendergraph::Node*);
+} // namespace rendergraph
 
 CustomItem::CustomItem(QQuickItem* parent)
         : QQuickItem(parent) {

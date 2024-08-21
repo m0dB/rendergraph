@@ -1,4 +1,5 @@
-#include "rendergraph.h"
+#include "rendergraph/geometrynode.h"
+#include "rendergraph/texture.h"
 
 namespace rendergraph {
 class ExampleNode1;

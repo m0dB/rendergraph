@@ -13,4 +13,4 @@ target_link_libraries(rendergraph_examples PUBLIC
     Qt6::OpenGL
 )
 
-target_include_directories(rendergraph_examples PUBLIC ../rendergraph .)
+target_include_directories(rendergraph_examples PUBLIC .. .)

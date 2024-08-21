@@ -23,4 +23,3 @@ qt_add_resources(rendergraph_gl "shaders-gl"
     FILES
         ${generated_shaders_gl}
 )
-

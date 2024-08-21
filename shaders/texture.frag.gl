@@ -9,6 +9,3 @@ void main()
 {
     gl_FragData[0] = texture2D(texture1, vTexcoord);
 }
-
-
-

@@ -1,10 +1,12 @@
-#include "endoftrackmaterial.h"
-#include "texturematerial.h"
 #include "examplenodes.h"
 
 #include <QColor>
-#include <QVector2D>
 #include <QMatrix4x4>
+#include <QVector2D>
+
+#include "endoftrackmaterial.h"
+#include "rendergraph/geometry.h"
+#include "texturematerial.h"
 
 using namespace rendergraph;
 
@@ -45,7 +47,6 @@ ExampleNode3::ExampleNode3() {
     material().setUniform(0, matrix);
 }
 
-void ExampleNode3::setTexture(std::unique_ptr<Texture> texture)
-{
-    dynamic_cast<TextureMaterial&>(material()).setTexture(std::move(texture)); 
+void ExampleNode3::setTexture(std::unique_ptr<Texture> texture) {
+    dynamic_cast<TextureMaterial&>(material()).setTexture(std::move(texture));
 }

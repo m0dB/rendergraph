@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "examplenodes.h"
+#include "rendergraph/graph.h"
 
 Window::Window() {
 }
@@ -20,9 +21,7 @@ void Window::initializeGL() {
         static_cast<rendergraph::ExampleNode3*>(node->lastChild())->setTexture(std::make_unique<rendergraph::Texture>(context, img));
     }
 
-
-
-    m_rendergraph = std::make_unique<rendergraph::RenderGraph>(std::move(node));
+    m_rendergraph = std::make_unique<rendergraph::Graph>(std::move(node));
     m_rendergraph->initialize();
 }
 

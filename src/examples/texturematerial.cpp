@@ -1,7 +1,10 @@
 #include "texturematerial.h"
 
-#include <QVector2D>
 #include <QMatrix4x4>
+#include <QVector2D>
+
+#include "rendergraph/materialshader.h"
+#include "rendergraph/materialtype.h"
 
 using namespace rendergraph;
 

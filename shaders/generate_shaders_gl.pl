@@ -23,7 +23,7 @@ for $file (@files)
             }
             else
             {
-                if (!$comment_added) 
+                if (!$comment_added)
                 {
                     if (!m/^#/)
                     {

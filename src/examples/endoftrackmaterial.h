@@ -1,4 +1,5 @@
-#include "rendergraph.h"
+#include "rendergraph/attributeset.h"
+#include "rendergraph/material.h"
 
 namespace rendergraph {
 class EndOfTrackMaterial;

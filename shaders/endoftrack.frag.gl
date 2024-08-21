@@ -17,6 +17,3 @@ void main()
     float alpha = mix(minAlpha, maxAlpha, max(0.0, vgradient));
     gl_FragData[0] = vec4(ubuf.color.xyz * alpha, alpha);
 }
-
-
-

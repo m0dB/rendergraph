@@ -17,6 +17,3 @@ void main()
     vTexcoord = texcoord;
     gl_Position = ubuf.matrix * position;
 }
-
-
-

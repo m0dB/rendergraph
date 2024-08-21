@@ -2,6 +2,9 @@
 
 #include <QVector2D>
 
+#include "rendergraph/materialshader.h"
+#include "rendergraph/materialtype.h"
+
 using namespace rendergraph;
 
 EndOfTrackMaterial::EndOfTrackMaterial()

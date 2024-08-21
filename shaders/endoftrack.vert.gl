@@ -10,6 +10,3 @@ void main()
     vgradient = gradient;
     gl_Position = position;
 }
-
-
-

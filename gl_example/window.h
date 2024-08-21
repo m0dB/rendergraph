@@ -4,7 +4,7 @@
 #include <memory>
 
 namespace rendergraph {
-class RenderGraph;
+class Graph;
 }
 
 class Window : public QOpenGLWindow {
@@ -17,5 +17,5 @@ class Window : public QOpenGLWindow {
     void paintGL() override;
 
   private:
-    std::unique_ptr<rendergraph::RenderGraph> m_rendergraph;
+    std::unique_ptr<rendergraph::Graph> m_rendergraph;
 };
