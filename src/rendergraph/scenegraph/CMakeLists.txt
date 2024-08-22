@@ -1,0 +1,53 @@
+add_library(rendergraph_sg
+    materialshader_impl.cpp
+    scenegraph.cpp
+    scenegraph.h
+    texture_impl.cpp
+    private/attributeset_impl.h
+    private/context_impl.h
+    private/geometry_impl.h
+    private/geometrynode_impl.h
+    private/graph_impl.h
+    private/material_impl.h
+    private/materialshader_impl.h
+    private/materialtype_impl.h
+    private/node_impl.h
+    private/texture_impl.h
+    ../attributeset.cpp
+    ../context.cpp
+    ../geometry.cpp
+    ../geometrynode.cpp
+    ../graph.cpp
+    ../material.cpp
+    ../materialshader.cpp
+    ../materialtype.cpp
+    ../node.cpp
+    ../texture.cpp
+    ../types.cpp
+    ../uniformscache.cpp
+    ../uniformset.cpp
+    ../attribute.h
+    ../attributeset.h
+    ../context.h
+    ../geometry.h
+    ../geometrynode.h
+    ../graph.h
+    ../material.h
+    ../materialshader.h
+    ../materialtype.h
+    ../node.h
+    ../texture.h
+    ../types.h
+    ../uniform.h
+    ../uniformscache.h
+    ../uniformset.h
+)
+
+target_link_libraries(rendergraph_sg PUBLIC
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Qml
+    Qt6::Quick
+)
+
+target_include_directories(rendergraph_sg PUBLIC ../.. PRIVATE private)
